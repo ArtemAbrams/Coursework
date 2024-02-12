@@ -1,33 +1,37 @@
 package com.example.coursework.entity;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.springframework.security.core.GrantedAuthority;
 
 import java.sql.Timestamp;
 
+@Entity
 @Getter
 @Setter
-@MappedSuperclass
 @NoArgsConstructor
 @AllArgsConstructor
-public abstract class BasicEntity {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
-
-  @CreationTimestamp
-  private Timestamp creationDate;
-
-  @UpdateTimestamp
-  @Column(updatable = false)
-  private Timestamp lastUpdateDate;
+public class Role implements GrantedAuthority {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @CreationTimestamp
+    private Timestamp creationDate;
+    @UpdateTimestamp
+    @Column(updatable = false)
+    private Timestamp lastUpdateDate;
+    private String role;
+    @Override
+    public String getAuthority() {
+        return role;
+    }
 }
