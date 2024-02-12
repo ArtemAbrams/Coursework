@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  db:
+    container_name: mariadb_database
+    image: mariadb:latest
+    environment:
+      MARIADB_ROOT_PASSWORD: root
+      MARIADB_USER: root
+      MARIADB_DATABASE: online_school
+    ports:
+      - '3306:3306'
