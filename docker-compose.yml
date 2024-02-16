@@ -8,5 +8,8 @@ services:
       MARIADB_ROOT_PASSWORD: root
       MARIADB_USER: root
       MARIADB_DATABASE: online_school
+    volumes:
+      - ./data:/var/lib/mysql
+      - ./my.cnf:/etc/mysql/conf.d/custom.cnf
     ports:
       - '3306:3306'
