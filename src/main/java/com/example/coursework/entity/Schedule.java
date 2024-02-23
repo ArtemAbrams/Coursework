@@ -15,6 +15,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -26,7 +27,7 @@ public class Schedule extends BasicEntity {
    @Enumerated(value = EnumType.STRING)
    private WeekDay weekDay;
    @ManyToOne
-   private Class aClass;
+   private StudentClass studentClass;
    @ManyToOne
    private User teacher;
    @ManyToOne
@@ -35,5 +36,5 @@ public class Schedule extends BasicEntity {
    @Max(7)
    private Integer subjectNumber;
    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "schedule")
-   private List<Task> tasks;
+   private List<Task> tasks = new ArrayList<>();
 }

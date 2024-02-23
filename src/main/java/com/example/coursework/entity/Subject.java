@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,5 +22,5 @@ import java.util.List;
 public class Subject extends BasicEntity {
    private String name;
    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "subject")
-   private List<Schedule> schedules;
+   private List<Schedule> schedules = new ArrayList<>();
 }

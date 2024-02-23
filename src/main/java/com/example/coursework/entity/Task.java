@@ -12,6 +12,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -25,7 +26,7 @@ public class Task extends BasicEntity{
     private String description;
     private LocalDateTime deadline;
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST, mappedBy = "task")
-    private List<StudentTaskAnswer> studentTaskAnswers;
+    private List<StudentTaskAnswer> studentTaskAnswers = new ArrayList<>();
     @ManyToOne
     private Schedule schedule;
     @ManyToOne

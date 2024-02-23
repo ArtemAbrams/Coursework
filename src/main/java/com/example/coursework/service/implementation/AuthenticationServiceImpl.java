@@ -39,6 +39,8 @@ public class AuthenticationServiceImpl implements AuthenticationService {
                 .accountNonExpired(true)
                 .accountNonLocked(true)
                 .credentialsNonExpired(true)
+                .firstName(registrationData.getName())
+                .lastName(registrationData.getLastname())
                 .email(registrationData.getEmail())
                 .password(passwordEncoder.encode(registrationData.getPassword()))
                 .roles(List.of(role))

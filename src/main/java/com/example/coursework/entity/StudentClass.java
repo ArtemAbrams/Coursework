@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -17,11 +18,11 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class Class extends BasicEntity {
+public class StudentClass extends BasicEntity {
   @Column(unique = true, updatable = false)
   private String className;
-  @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "aClass")
-  private List<User> users;
-  @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "aClass")
-  private List<Schedule> schedules;
+  @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "studentClass")
+  private List<User> users = new ArrayList<>();
+  @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "studentClass")
+  private List<Schedule> schedules = new ArrayList<>();
 }

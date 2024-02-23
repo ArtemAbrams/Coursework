@@ -30,7 +30,8 @@ public class SecurityFilterConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .cors(e -> e.configurationSource(corsConfigurationSource))
                 .authorizeHttpRequests(e ->
-                        e.requestMatchers("/auth/**")
+                        e.requestMatchers("/auth/**",
+                                        "/api/v1/**")
                                 .permitAll()
                                 .anyRequest()
                                 .authenticated()

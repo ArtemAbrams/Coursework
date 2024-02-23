@@ -27,9 +27,8 @@ public class StudentTaskAnswer extends BasicEntity {
     private Integer grade;
     @Enumerated(value = EnumType.STRING)
     private TaskStatus taskStatus;
-    @Lob
     @Column(name = "pdf_data")
-    private byte[] pdfData;
+    private String keyName;
     @ManyToOne
     private Task task;
     @ManyToOne

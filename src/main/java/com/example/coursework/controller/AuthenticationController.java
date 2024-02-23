@@ -19,7 +19,13 @@ public class AuthenticationController {
     private final AuthenticationServiceImpl authenticationServiceImpl;
     @PostMapping("/registration")
     public ResponseEntity<String> registration(@RequestBody RegistrationRequest registrationData){
-        return ResponseEntity.ok(authenticationServiceImpl.registration(registrationData));
+        try{
+            return ResponseEntity.ok(authenticationServiceImpl.registration(registrationData));
+        }
+        catch (Exception exception){
+          return ResponseEntity.internalServerError()
+                  .body(exception.getMessage());
+        }
     }
     @PostMapping("/login")
     public ResponseEntity<TokenResponse> login(@RequestBody LoginRequest loginData){
