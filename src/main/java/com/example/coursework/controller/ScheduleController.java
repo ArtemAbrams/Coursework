@@ -21,12 +21,26 @@ public class ScheduleController {
     private final ScheduleServiceImpl scheduleService;
 
     @GetMapping("/get-schedule")
-    public ResponseEntity<?> getSchedule(@RequestParam("week-start") Date weekStart,
+    public ResponseEntity<?> getStudentSchedule(@RequestParam("week-start") Date weekStart,
             @RequestParam("week-end") Date weekEnd){
         try {
             var currentDate = new CurrentDateDto(weekStart, weekEnd);
 
-            return ResponseEntity.ok(scheduleService.getCurrentSchedule(currentDate));
+            return ResponseEntity.ok(scheduleService.getCurrentStudentSchedule(currentDate));
+        }
+        catch (Exception exception){
+            log.error(exception.getMessage());
+            return ResponseEntity.internalServerError()
+                    .body(exception.getMessage());
+        }
+    }
+    @GetMapping("/teacher/get-schedule")
+    public ResponseEntity<?> getTeacherSchedule(@RequestParam("week-start") Date weekStart,
+            @RequestParam("week-end") Date weekEnd){
+        try {
+            var currentDate = new CurrentDateDto(weekStart, weekEnd);
+
+            return ResponseEntity.ok(scheduleService.getTeacherScheduleResponseDto(currentDate));
         }
         catch (Exception exception){
             log.error(exception.getMessage());

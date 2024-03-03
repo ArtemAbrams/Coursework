@@ -1,4 +1,4 @@
-package com.example.coursework.dto;
+package com.example.coursework.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,9 +7,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class UserDto {
+public class SpecifyGradeRequestDto {
 
+    private Long taskId;
     private String userEmail;
-    private String firstName;
-    private String lastName;
+    private Integer grade;
 }

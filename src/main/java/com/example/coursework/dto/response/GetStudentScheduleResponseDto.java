@@ -1,6 +1,6 @@
 package com.example.coursework.dto.response;
 
-import com.example.coursework.dto.WorkDayDto;
+import com.example.coursework.dto.StudentWorkDayDto;
 import com.example.coursework.enums.WeekDay;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,7 +12,7 @@ import java.util.Map;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class GetScheduleResponseDto {
+public class GetStudentScheduleResponseDto {
 
-    private Map<WeekDay, List<WorkDayDto>> workDayDtoMap;
+    private Map<WeekDay, List<StudentWorkDayDto>> workDayDtoMap;
 }

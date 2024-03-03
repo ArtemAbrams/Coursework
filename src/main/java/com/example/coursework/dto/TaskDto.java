@@ -4,13 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class WorkDayDto {
-
-    private UserDto teacher;
-    private String subject;
-    private Integer subjectNumber;
-    private Long taskId;
+public class TaskDto {
+    private String description;
+    private LocalDateTime deadline;
 }

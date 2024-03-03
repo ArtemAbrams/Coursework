@@ -21,6 +21,6 @@ public class WorkWeekServiceImpl implements WorkWeekService {
                         currentDate.getEndDate())
                .orElseThrow(()-> new IllegalStateException("No work week found for the current date range."));
 
-        return  WorkWeekMapper.INSTANCE.toGetCurrentWorkWeekDto(currentWorkWeek);
+        return  WorkWeekMapper.INSTANCE.workWeektoGetCurrentWorkWeekDto(currentWorkWeek);
     }
 }

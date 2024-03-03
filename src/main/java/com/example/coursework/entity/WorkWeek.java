@@ -26,7 +26,7 @@ public class WorkWeek extends BasicEntity {
 
     private Date weekStart;
     private Date weekEnd;
-    @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.LAZY, mappedBy = "workWeek")
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "workWeek")
     private List<Task> tasks = new ArrayList<>();
 
     @Override

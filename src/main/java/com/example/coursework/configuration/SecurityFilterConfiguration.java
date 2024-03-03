@@ -19,7 +19,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
-@EnableMethodSecurity(prePostEnabled = true)
+@EnableMethodSecurity
 public class SecurityFilterConfiguration {
     private final SecurityFilter securityFilter;
     private final AuthenticationProvider authenticationProvider;

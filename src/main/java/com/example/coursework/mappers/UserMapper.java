@@ -1,5 +1,7 @@
 package com.example.coursework.mappers;
 
+import com.example.coursework.dto.UserDto;
+import com.example.coursework.dto.UserPassTaskDto;
 import com.example.coursework.dto.response.GetUserResponseDto;
 import com.example.coursework.entity.User;
 import org.mapstruct.Mapper;
@@ -14,5 +16,5 @@ public interface UserMapper {
     @Mapping(source = "email", target = "email")
     @Mapping(source = "firstName", target = "firstName")
     @Mapping(source = "lastName", target = "lastName")
-    GetUserResponseDto getUserResponseDto(User user);
+    GetUserResponseDto userToUserResponseDto(User user);
 }

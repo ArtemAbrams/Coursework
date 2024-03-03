@@ -14,5 +14,5 @@ public interface WorkWeekMapper {
     @Mapping(source = "id", target = "id")
     @Mapping(source = "weekStart", target = "weekStart")
     @Mapping(source = "weekEnd", target = "weekEnd")
-    GetCurrentWorkWeekDto toGetCurrentWorkWeekDto(WorkWeek week);
+    GetCurrentWorkWeekDto workWeektoGetCurrentWorkWeekDto(WorkWeek week);
 }

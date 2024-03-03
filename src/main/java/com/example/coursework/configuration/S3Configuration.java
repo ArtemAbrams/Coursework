@@ -14,13 +14,11 @@ public class S3Configuration {
 
     @Value("${aws.access.key}")
     private String awsAccessKey;
-
     @Value("${aws.secret.key}")
     private String awsSecretKey;
 
     @Bean
     public AmazonS3 s3client() {
-
         var awsCredentials = new BasicAWSCredentials(awsAccessKey, awsSecretKey);
 
         return AmazonS3ClientBuilder.standard()

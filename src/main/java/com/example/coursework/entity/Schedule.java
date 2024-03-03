@@ -35,6 +35,6 @@ public class Schedule extends BasicEntity {
    @Min(1)
    @Max(7)
    private Integer subjectNumber;
-   @OneToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER, mappedBy = "schedule")
+   @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER, mappedBy = "schedule")
    private List<Task> tasks = new ArrayList<>();
 }

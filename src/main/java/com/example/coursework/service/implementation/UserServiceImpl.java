@@ -4,7 +4,7 @@ import com.example.coursework.dto.response.GetUserResponseDto;
 import com.example.coursework.entity.User;
 import com.example.coursework.mappers.UserMapper;
 import com.example.coursework.service.UserService;
-import org.springframework.security.core.context.SecurityContextHolder;
+import com.example.coursework.utils.UserUtils;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -12,13 +12,11 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public GetUserResponseDto getUser() {
-        var user = SecurityContextHolder.getContext()
-                .getAuthentication()
-                .getPrincipal();
+        var user = UserUtils.getCurrentUser();
 
-        if(user instanceof User){
+        if(user != null){
 
-          return UserMapper.INSTANCE.getUserResponseDto((User)user);
+          return UserMapper.INSTANCE.userToUserResponseDto((User)user);
         }
 
         throw new SecurityException("Server error cannot get current user");

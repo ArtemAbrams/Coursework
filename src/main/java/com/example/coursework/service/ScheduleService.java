@@ -1,11 +1,13 @@
 package com.example.coursework.service;
 
 import com.example.coursework.dto.CurrentDateDto;
-import com.example.coursework.dto.response.GetScheduleResponseDto;
+import com.example.coursework.dto.response.GetStudentScheduleResponseDto;
+import com.example.coursework.dto.response.GetTeacherScheduleResponseDto;
 
 import javax.security.sasl.AuthenticationException;
 
 public interface ScheduleService {
 
-    GetScheduleResponseDto getCurrentSchedule(CurrentDateDto currentDateDto) throws AuthenticationException;
+    GetStudentScheduleResponseDto getCurrentStudentSchedule(CurrentDateDto currentDateDto) throws AuthenticationException;
+    GetTeacherScheduleResponseDto getTeacherScheduleResponseDto(CurrentDateDto currentDateDto);
 }
